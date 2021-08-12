@@ -1,0 +1,6 @@
+Tasks:
+1. computerPlay function
+Add variable (randomVar) to store number 1, 2 or 3.
+Create a function randomVarFunc which generates random integer values from 1 to 3 and return it in (randomVar).
+Create a function assignFunc which assigns integer 1, 2, 3 in (randomVar) to Rock, Paper, Scissors accordingly and return that value.
+Return string value of randomVar.
