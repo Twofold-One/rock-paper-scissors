@@ -4,3 +4,20 @@ Add variable (randomVar) to store number 1, 2 or 3.
 Create a function randomVarFunc which generates random integer values from 1 to 3 and return it in (randomVar).
 Create a function assignFunc which assigns integer 1, 2, 3 in (randomVar) to Rock, Paper, Scissors accordingly and return that value.
 Return string value of randomVar.
+
+2. playRound function
+Add variables (playerSelection, computerSelection).
+Assign (computerSelection) to the returned result of computerPlay function.
+//maybe make it a function which will return error if input is incorrect
+Assing (playerSelection) from promting the user to input "rock, paper or scissors" in promt window.
+Round condition
+If (playerSelection) is Rock run funcRock
+If (playerSelection) is Paper run funcPaper
+If (playerSelection) is Scissors run funcScissors
+Else run alert choose proper thing
+
+Few functions which use switch for every selection:
+a) funcRock
+If (computerSelection) is Rock print "Tie, play again"
+If (computerSelection) is Paper print "You lose, Paper beats Rock"
+If (computerSelection) is Scissors print "You win, Rock beats Scissors"
