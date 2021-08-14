@@ -21,3 +21,17 @@ a) funcRock
 If (computerSelection) is Rock print "Tie, play again"
 If (computerSelection) is Paper print "You lose, Paper beats Rock"
 If (computerSelection) is Scissors print "You win, Rock beats Scissors"
+
+3. game function
+Add variables (playerScore), (computerScore) with initial values of 0.
+
+while (playerScore) + (computerScore) < 5
+run playRound function;
+if func result is win (playerScore) + 1;
+else if func result is lose (computerScore) + 1;
+
+if (playerScore) > (computerScore) console.log playerScore is ..., computerScore is..., player wins!
+else console.log playerScore is ..., computerScore is..., computer wins!
+
+
+
