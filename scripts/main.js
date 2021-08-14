@@ -1,9 +1,9 @@
 
 // function returns randomly chosen by the computer Rock, Paper, Scissors 
 function computerPlay() {
-    
+
     let randomVar;
-    
+
     // function generates random integer 1, 2 or 3
     function randomVarFunc() {
         randomVar = Math.floor(Math.random() * 3) + 1;
@@ -16,7 +16,7 @@ function computerPlay() {
         if (randomVar === 1) {
             return randomVar = "rock";
         } else if (randomVar === 2) {
-            return randomVar = "paper"; 
+            return randomVar = "paper";
         } else if (randomVar === 3) {
             return randomVar = "scissors";
         } else {
@@ -24,17 +24,17 @@ function computerPlay() {
         }
     }
     //calling the function
-    assignFunc();    
-    return randomVar;       
+    assignFunc();
+    return randomVar;
 
 }
 
 //function that plays single round
-function playRound (playerSelection, computerSelection) {
-    
+function playRound(playerSelection, computerSelection) {
+
     //round result variable
     let playRoundResult = "default";
-    
+
     //LEGACY huge construction without separate switch functions
     /*
     //playRound condition
@@ -93,7 +93,7 @@ function playRound (playerSelection, computerSelection) {
 
     if (playerSelection === "rock") {
         funcRock();
-        return playRoundResult;         
+        return playRoundResult;
     } else if (playerSelection === "paper") {
         funcPaper();
         return playRoundResult;
@@ -107,7 +107,7 @@ function playRound (playerSelection, computerSelection) {
     }
 
     //function if choose Rock
-    function funcRock () {
+    function funcRock() {
         switch (computerSelection) {
             case "rock":
                 playRoundResult = "tie";
@@ -125,7 +125,7 @@ function playRound (playerSelection, computerSelection) {
     }
 
     //function if choose Paper
-    function funcPaper () {
+    function funcPaper() {
         switch (computerSelection) {
             case "rock":
                 playRoundResult = "win";
@@ -142,7 +142,7 @@ function playRound (playerSelection, computerSelection) {
         }
     }
     //function if choose Scissors
-    function funcScissors () {
+    function funcScissors() {
         switch (computerSelection) {
             case "rock":
                 playRoundResult = "lose";
@@ -158,13 +158,13 @@ function playRound (playerSelection, computerSelection) {
                 break;
         }
     }
-   
-    
+
+
 }
 
 //function of 5 score game
 function game() {
-    
+
     let playerScore = 0;
     let computerScore = 0;
     let roundNum = 0;
@@ -178,15 +178,26 @@ function game() {
     `)
 
     while (playerScore + computerScore < 5) {
-        
+
         //round num iterator
         ++roundNum;
 
-        let playerSelection = (prompt("Type Rock, Paper or Scissors")).toLowerCase();
+        //player selection func and variable
+        let playerSelection = playerSelectionFunc ();
+
+        function playerSelectionFunc () {
+            let funcPlayerSelection = (prompt("Type Rock, Paper or Scissors"));
+
+            if (funcPlayerSelection) {
+                return funcPlayerSelection.toLowerCase();
+            }
+        }
+
+        //let playerSelection = (prompt("Type Rock, Paper or Scissors")).toLowerCase();
         console.log("Round " + roundNum + " Player selection is: " + playerSelection);
         let computerSelection = computerPlay();
         console.log("Round " + roundNum + " Computer selection is: " + computerSelection);
-        console.log("Round " + roundNum +  " result is: ");
+        console.log("Round " + roundNum + " result is: ");
         roundResult = playRound(playerSelection, computerSelection);
 
         if (roundResult === "win") {
@@ -196,7 +207,7 @@ function game() {
         } else if (roundResult === "tie") {
             //console.log("Tie, play additional round");
         } else {
-            console.log("Choose proper thing!");
+            console.log("Type a proper thing!");
         }
 
         //LEGACY
@@ -205,7 +216,7 @@ function game() {
         playRound(playerSelection, computerSelection);
         */
         //console.log("Round " + ++roundNum +  " result is: " + playRound(playerSelection, computerSelection));
-        
+
         /*
         if (playRound(playerSelection, computerSelection) === "win") {
             playerScore++;
@@ -216,14 +227,14 @@ function game() {
         }
         */
 
-        console.log ("Scores: " + "Player " + playerScore + ", "  + "Computer " +  computerScore);
-        
+        console.log("Scores: " + "Player " + playerScore + ", " + "Computer " + computerScore);
+
         //console spacer
         console.log(`
         `)
     }
 
-    
+
     if (playerScore > computerScore) {
         console.log(`
         Player score is  ${playerScore}
