@@ -1,0 +1,38 @@
+html {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 400px;
+}
+
+#main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 50px;
+}
+/*
+#icon_container {
+    min-width: 100px;
+    margin: 20px 20px;
+}
+*/
+
+i {
+    color: black;
+    margin: 10px 10px;
+    font-size: 100px;
+}

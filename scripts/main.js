@@ -35,61 +35,7 @@ function playRound(playerSelection, computerSelection) {
     //round result variable
     let playRoundResult = "default";
 
-    //LEGACY huge construction without separate switch functions
-    /*
-    //playRound condition
-    if (playerSelection === "rock") {
-        switch (computerSelection) {
-            case "rock":
-                playRoundResult = "Tie";
-                console.log("Tie, play again");
-                break;
-            case "paper":
-                playRoundResult = "Lose";
-                console.log("You lose! Paper beats Rock");
-                break;
-            case "scissors":
-                playRoundResult = "Win";
-                console.log("You win! Rock beats Scissors");
-                break;
-        }
-        return playRoundResult;         
-    } else if (playerSelection === "paper") {
-        switch (computerSelection) {
-            case "rock":
-                playRoundResult = "Win";
-                console.log("You win! Paper beats Rock");
-                break;
-            case "paper":
-                playRoundResult = "Tie";
-                console.log("Tie, play again");
-                break;
-            case "scissors":
-                playRoundResult = "Lose";
-                console.log("You lose! Scissors beats Paper");
-                break;
-        }
-        return playRoundResult;
-    } else if (playerSelection === "scissors") {
-        switch (computerSelection) {
-            case "Rock":
-                playRoundResult = "Lose";
-                console.log("You lose! Rock beats Scissors");
-                break;
-            case "Paper":
-                playRoundResult = "Win";
-                console.log("You win! Paper beats Rock");
-                break;
-            case "Scissors":
-                playRoundResult = "Tie";
-                console.log("Tie, play again");
-                break;
-        }
-        return playRoundResult;
-    } else {
-        return alert("Error, type a proper object!")
-    }
-*/
+    
 
     if (playerSelection === "rock") {
         funcRock();
@@ -162,6 +108,8 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+/*
+
 //function of 5 score game
 function game() {
 
@@ -210,22 +158,7 @@ function game() {
             console.log("Type a proper thing!");
         }
 
-        //LEGACY
-        /*
-        console.log("Round " + ++roundNum +  " result is: ");
-        playRound(playerSelection, computerSelection);
-        */
-        //console.log("Round " + ++roundNum +  " result is: " + playRound(playerSelection, computerSelection));
-
-        /*
-        if (playRound(playerSelection, computerSelection) === "win") {
-            playerScore++;
-        } else if (playRound(playerSelection, computerSelection) === "lose") {
-            computerScore++;
-        } else {
-            console.log("Tie, play additional round")
-        }
-        */
+        
 
         console.log("Scores: " + "Player " + playerScore + ", " + "Computer " + computerScore);
 
@@ -257,6 +190,8 @@ function game() {
 game();
 
 
+*/
+
 //LEGACY
 /*
 let playerSelection = prompt("Type Rock, Paper or Scissors");
@@ -274,4 +209,77 @@ let playerSelection = prompt("Type Rock, Paper or Scissors");
         console.log("Computer selection is: " + computerSelection);
         playRound(playerSelection, computerSelection);
         console.log("Round " + (playerScore + computerScore + 1) +  " result is: " + playRound(playerSelection, computerSelection));
+        */
+
+        //LEGACY huge construction without separate switch functions
+    /*
+    //playRound condition
+    if (playerSelection === "rock") {
+        switch (computerSelection) {
+            case "rock":
+                playRoundResult = "Tie";
+                console.log("Tie, play again");
+                break;
+            case "paper":
+                playRoundResult = "Lose";
+                console.log("You lose! Paper beats Rock");
+                break;
+            case "scissors":
+                playRoundResult = "Win";
+                console.log("You win! Rock beats Scissors");
+                break;
+        }
+        return playRoundResult;         
+    } else if (playerSelection === "paper") {
+        switch (computerSelection) {
+            case "rock":
+                playRoundResult = "Win";
+                console.log("You win! Paper beats Rock");
+                break;
+            case "paper":
+                playRoundResult = "Tie";
+                console.log("Tie, play again");
+                break;
+            case "scissors":
+                playRoundResult = "Lose";
+                console.log("You lose! Scissors beats Paper");
+                break;
+        }
+        return playRoundResult;
+    } else if (playerSelection === "scissors") {
+        switch (computerSelection) {
+            case "Rock":
+                playRoundResult = "Lose";
+                console.log("You lose! Rock beats Scissors");
+                break;
+            case "Paper":
+                playRoundResult = "Win";
+                console.log("You win! Paper beats Rock");
+                break;
+            case "Scissors":
+                playRoundResult = "Tie";
+                console.log("Tie, play again");
+                break;
+        }
+        return playRoundResult;
+    } else {
+        return alert("Error, type a proper object!")
+    }
+*/
+
+//LEGACY
+        /*
+        console.log("Round " + ++roundNum +  " result is: ");
+        playRound(playerSelection, computerSelection);
+        */
+        //console.log("Round " + ++roundNum +  " result is: " + playRound(playerSelection, computerSelection));
+
+        /*
+        if (playRound(playerSelection, computerSelection) === "win") {
+            playerScore++;
+        } else if (playRound(playerSelection, computerSelection) === "lose") {
+            computerScore++;
+        } else {
+            console.log("Tie, play additional round")
+        }
         */
