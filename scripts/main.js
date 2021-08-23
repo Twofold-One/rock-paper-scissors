@@ -1,4 +1,3 @@
-
 // function returns randomly chosen by the computer Rock, Paper, Scissors 
 function computerPlay() {
 

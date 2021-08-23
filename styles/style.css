@@ -7,15 +7,49 @@ html {
 body {
     background-color: aliceblue;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
+
+/*score section*/
+
+#score {
+    position: relative;
+    text-align: center;
+    min-width: 100%;
+}
+
+#score-container {
+    display: flex;
+    justify-content: center;
+}
+
+.sc-cont-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+/*round section*/
+
+
+#round {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px auto;
+}
+
+/*player selection section*/
+
 #main {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 400px;
 }
 
 #main_container {
@@ -24,15 +58,21 @@ body {
     justify-content: center;
     margin: 0 50px;
 }
-/*
-#icon_container {
-    min-width: 100px;
-    margin: 20px 20px;
-}
-*/
 
 i {
     color: black;
     margin: 10px 10px;
     font-size: 100px;
+}
+
+button {
+    border: 1px solid white;
+    border-radius: 7px;
+    color: black;
+    background-color: cadetblue;
+}
+
+button:hover {
+    box-shadow: 0px 0px 5px green;
+
 }
