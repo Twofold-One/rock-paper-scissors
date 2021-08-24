@@ -10,7 +10,6 @@
     </head>
     <body>
 
-
         <!--Score section-->
         <div id="score">
             <h1>Score</h1>
@@ -26,17 +25,22 @@
                     <p>Total:</p>
                     <p id="total-score">0</p></div>
             </div>
+            <div id="result-container"></div>
         </div>
 
         <!--Round section-->
         <div id="round">
-            <div id="computer-selection">
-                Computer selection:
-                <i></i>
-            </div >
-            <div id="player-selection">
-                Player selection:
-                <i></i>
+            <div>
+                <div>
+                    Computer selection:
+                </div >
+                <div id="computer-selection"></div >
+            </div>
+            <div>
+                <div >
+                    Player selection:    
+                </div>
+                <div id="player-selection"></div>
             </div>
         </div>
 
@@ -46,23 +50,21 @@
                 <div id="icon_container">
                     <i class="far fa-hand-rock"></i>
                 </div>
-                <button>Rock</button>
+                <button id="pl-rock">Rock</button>
             </div>
             <div id="main_container">
                 <div id="icon_container">
                     <i class="far fa-hand-paper"></i>
                 </div>
-                <button>Paper</button>
+                <button id="pl-paper">Paper</button>
             </div>
             <div id="main_container">
                 <div id="icon_container">
                     <i class="far fa-hand-scissors"></i>
                 </div>
-                
-                <button>Scissors</button>
+                <button id="pl-scissors">Scissors</button>
             </div>    
-        </div>
-
-        
+        </div> 
+           
     </body>
 </html>
