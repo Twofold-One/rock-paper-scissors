@@ -65,26 +65,6 @@ function playRound(playerSelection, computerSelection) {
     //round result variable
     let playRoundResult = "default";
 
-
-
-    if (playerSelection === "rock") {
-        displayPlayerSelection(playerSelection);
-        funcRock();
-        return playRoundResult;
-    } else if (playerSelection === "paper") {
-        displayPlayerSelection(playerSelection);
-        funcPaper();
-        return playRoundResult;
-    } else if (playerSelection === "scissors") {
-        displayPlayerSelection(playerSelection);
-        funcScissors();
-        return playRoundResult;
-    } else {
-        alert("Error, type a proper object!");
-        playRoundResult = "error";
-        return playRoundResult;
-    }
-
     //function if choose Rock
     function funcRock() {
         switch (computerSelection) {
@@ -96,12 +76,12 @@ function playRound(playerSelection, computerSelection) {
             case "paper":
                 displayCompSelection(computerSelection);
                 playRoundResult = "lose";
-                displayResult("You lose! Paper beats Rock");
+                displayResult("You lose this round! Paper beats Rock");
                 break;
             case "scissors":
                 displayCompSelection(computerSelection);
                 playRoundResult = "win";
-                displayResult("You win! Rock beats Scissors");
+                displayResult("You win this round! Rock beats Scissors");
                 break;
         }
     }
@@ -112,7 +92,7 @@ function playRound(playerSelection, computerSelection) {
             case "rock":
                 displayCompSelection(computerSelection);
                 playRoundResult = "win";
-                displayResult("You win! Paper beats Rock");
+                displayResult("You win this round! Paper beats Rock");
                 break;
             case "paper":
                 displayCompSelection(computerSelection);
@@ -122,7 +102,7 @@ function playRound(playerSelection, computerSelection) {
             case "scissors":
                 displayCompSelection(computerSelection);
                 playRoundResult = "lose";
-                displayResult("You lose! Scissors beats Paper");
+                displayResult("You lose this round! Scissors beats Paper");
                 break;
         }
     }
@@ -132,12 +112,12 @@ function playRound(playerSelection, computerSelection) {
             case "rock":
                 displayCompSelection(computerSelection);
                 playRoundResult = "lose";
-                displayResult("You lose! Rock beats Scissors");
+                displayResult("You lose this round! Rock beats Scissors");
                 break;
             case "paper":
                 displayCompSelection(computerSelection);
                 playRoundResult = "win";
-                displayResult("You win! Paper beats Rock");
+                displayResult("You win this round! Paper beats Rock");
                 break;
             case "scissors":
                 displayCompSelection(computerSelection);
@@ -146,37 +126,229 @@ function playRound(playerSelection, computerSelection) {
                 break;
         }
     }
+
+    if (playerSelection === "rock") {
+        displayPlayerSelection(playerSelection);
+        funcRock();
+        //return playRoundResult;
+    } else if (playerSelection === "paper") {
+        displayPlayerSelection(playerSelection);
+        funcPaper();
+        //return playRoundResult;
+    } else if (playerSelection === "scissors") {
+        displayPlayerSelection(playerSelection);
+        funcScissors();
+        //return playRoundResult;
+    } else {
+        alert("Error, type a proper object!");
+        playRoundResult = "error";
+        //return playRoundResult;
+    }
+    return playRoundResult;
 }
 
-/*
-//When you click on button func playRound returned with correct player chosen value
-const btns = document.querySelectorAll('button');
-btns.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        //console.log(e);
-        //console.log(e.target.id);
+//funcion that deals with the scores
+function score (roundResult) {
+    const playerScore = document.getElementById("player-score");
+    const computerScore = document.getElementById("computer-score");
+    const roundNum = document.getElementById("round-num");
+    let totalScore = Number(playerScore.innerText) + Number(computerScore.innerText);
 
-        switch(e.target.id) {
-            case `pl-rock`:
-                playRound("rock", computerPlay());
-            break;
-            case `pl-paper`:
-                playRound("paper", computerPlay());
-            break;
-            case `pl-scissors`:
-                playRound("scissors", computerPlay());
-            break; 
+    //function which clears scores
+    function scoreClear () {
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+        roundNum.textContent = 0;
+    }
+
+    if (totalScore < 5) {
+
+        //round num iterator
+        //++roundNum;
+        roundNum.textContent = Number(roundNum.textContent) + 1;
+        
+        if (roundResult === "win") {
+            playerScore.textContent = Number(playerScore.textContent) + 1;
+        } else if (roundResult === "lose") {
+            computerScore.textContent = Number(computerScore.textContent) + 1;
+        } else if (roundResult === "tie") {
+            //alert("Tie, play additional round");
         }
 
-    });
-});
+    } else if (totalScore === 5) {
 
+        if (Number(playerScore.innerText) > Number(computerScore.innerText)) {
+            
+            displayResult('Player WINS the game!');
+
+        } else {
+            displayResult('Computer WINS the game!');
+        }
+    }    
+}
+
+//function activated if rock have been chosen
+function playRoundRock () {
+    let roundResult = playRound("rock", computerPlay());
+    score(roundResult);
+}
+
+//function activated if paper have been chosen
+function playRoundPaper () {
+    let roundResult = playRound("paper", computerPlay());
+    score(roundResult);
+}
+
+//function activated if scissors have been chosen
+function playRoundScissors () {
+    let roundResult = playRound("scissors", computerPlay());
+    score(roundResult);
+}
+
+function btnClick () {
+    //When you click on button func playRound returned with correct player chosen value
+    const btns = document.querySelectorAll('button');
+    btns.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            //console.log(e);
+            //console.log(e.target.id);
+
+            switch(e.target.id) {
+                case `pl-rock`:
+                    playRoundRock();
+                break;
+                case `pl-paper`:
+                    playRoundPaper();
+                break;
+                case `pl-scissors`:
+                    playRoundScissors();
+                break; 
+            }
+
+        });
+    });
+}
+
+btnClick();
+
+
+
+
+
+/*
+function btnPlayRound() {
+    let roundResult = "deafault";
+
+    //When you click on button func playRound returned with correct player chosen value
+        const btns = document.querySelectorAll('button');
+        btns.forEach((button) => {
+        button.addEventListener('click', (e) => {
+
+            if (e.target.id === `pl-rock`) {
+                roundResult = playRound("rock", computerPlay());
+            } else if (e.target.id === `pl-paper`) {
+                roundResult = playRound("paper", computerPlay());
+            } else if (e.target.id === `pl-scissors`) {
+                roundResult = playRound("scissors", computerPlay());
+            }
+
+
+
+            /*
+            switch(e.target.id) {
+                case `pl-rock`:
+                    roundResult = playRound("rock", computerPlay());
+                    console.log(roundResult + " 123")
+                break;
+                case `pl-paper`:
+                    roundResult = playRound("paper", computerPlay());
+                break;
+                case `pl-scissors`:
+                    roundResult = playRound("scissors", computerPlay());
+                break; 
+            }
+            
+        });
+    });
+}
 */
 
 
 
 
 
+/*
+function btnPlayRound() {
+
+
+    //When you click on button func playRound returned with correct player chosen value
+        const btns = document.querySelectorAll('button');
+        btns.forEach((button) => {
+        button.addEventListener('click', (e) => {
+
+            let playerScore = 0;
+            let computerScore = 0;
+            let roundNum = 0;
+            let gameRoundResult;
+
+            function score() {
+                if (gameRoundResult === "win") {
+                    ++playerScore;
+                } else if (gameRoundResult === "lose") {
+                    ++computerScore;
+                } else if (gameRoundResult === "tie") {
+                } 
+            }    
+            
+            while (playerScore + computerScore < 5) {
+
+            //round num iterator
+            ++roundNum;
+
+            if (e.target.id === `pl-rock`) {
+                gameRoundResult = playRound("rock", computerPlay());
+                score();
+            } else if (e.target.id === `pl-paper`) {
+                gameRoundResult = playRound("paper", computerPlay());
+            } else if (e.target.id === `pl-scissors`) {
+                gameRoundResult = playRound("scissors", computerPlay());
+            }
+
+            if (playerScore > computerScore) {
+                console.log(`
+                Player score is  ${playerScore}
+                Computer score is ${computerScore}
+                Total rounds played ${roundNum}
+                Player WINS!
+                `);
+                //console.log("Player score is " + playerScore + ", computer score is " + computerScore + ". Player WINS!");
+            } else {
+                console.log(`
+                Player score is  ${playerScore}
+                Computer score is ${computerScore}
+                Total rounds played ${roundNum}
+                Computer WINS!
+                `)};
+            }
+            /*
+            switch(e.target.id) {
+                case `pl-rock`:
+                    roundResult = playRound("rock", computerPlay());
+                    console.log(roundResult + " 123")
+                break;
+                case `pl-paper`:
+                    roundResult = playRound("paper", computerPlay());
+                break;
+                case `pl-scissors`:
+                    roundResult = playRound("scissors", computerPlay());
+                break; 
+            }
+            
+        });
+    });
+}
+*/
+/*
 function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -189,38 +361,10 @@ function game() {
         //++roundNum;
 
 
-    function btnPlayRound() {
-        let roundResult;
 
-    //When you click on button func playRound returned with correct player chosen value
-        const btns = document.querySelectorAll('button');
-        btns.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            //console.log(e);
-            //console.log(e.target.id);
 
-        
-            switch(e.target.id) {
-                case `pl-rock`:
-                    roundResult = playRound("rock", computerPlay());
-                break;
-                case `pl-paper`:
-                    roundResult = playRound("paper", computerPlay());
-                break;
-                case `pl-scissors`:
-                    roundResult = playRound("scissors", computerPlay());
-                break; 
-            }
 
-        });
-    });
-    console.log(roundResult)
-return roundResult;
-
-}
-
-gameRoundResult = btnPlayRound();
-console.log(gameRoundResult)
+console.log(btnPlayRound() + " 111")
 
 function score() {
     if (gameRoundResult === "win") {
@@ -228,9 +372,7 @@ function score() {
     } else if (gameRoundResult === "lose") {
         ++computerScore;
     } else if (gameRoundResult === "tie") {
-    } else {
-        console.log("Type a proper thing!");
-    }
+    } 
 }
 
 score();
