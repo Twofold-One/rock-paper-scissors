@@ -1,7 +1,9 @@
 html {
     padding: 0px;
     margin: 0px;
-    font-family: sans-serif;
+    font-family: 'Luckiest Guy', sans-serif;
+    font-size: 15px;
+    color:black;
 }
 
 body {
@@ -11,6 +13,9 @@ body {
     justify-content: center;
 }
 
+h1 {
+    margin: 10px auto;
+}
 
 /*score section*/
 
@@ -26,14 +31,21 @@ body {
 }
 
 #result-container {
-    height: 50px
+    height: 50px;
+    font-size: 1.3em;
+    font-weight: 700;
 }
 
 .sc-cont-sub {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items:flex-end;
     margin: 0 20px;
+}
+
+.score-nums {
+    margin-left: 10px;
 }
 
 /*round section*/
@@ -45,7 +57,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 20px auto;
+    margin: 20px 0 0;
+}
+
+.display-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*player selection section*/
@@ -56,6 +74,7 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 0;
 }
 
 #main_container {
@@ -71,13 +90,30 @@ i {
     font-size: 100px;
 }
 
+@media screen and (max-width: 375px) {
+    i {
+        font-size: 80px;
+    }
+}
+
 button {
+    font-family: 'Luckiest Guy', sans-serif;
+    font-size: 1em;
     border: 1px solid white;
     border-radius: 7px;
     color: black;
     background-color: cadetblue;
+    opacity: 0.8;
+    height: 25px;
 }
 
 button:hover {
-    box-shadow: 0px 0px 5px green;
+    box-shadow: 0px 0px 5px cadetblue;
+    opacity: 1;
+}
+
+button:active {
+    background-color: rgb(68, 131, 136);
+    box-shadow: 0 0 5px rgb(118, 194, 197);
+    transform: translateY(4px);
 }
